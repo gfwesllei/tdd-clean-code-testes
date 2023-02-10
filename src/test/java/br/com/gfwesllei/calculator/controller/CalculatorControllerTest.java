@@ -28,6 +28,20 @@ public class CalculatorControllerTest {
 
   }
 
+  @ParameterizedTest
+  @MethodSource("invalidValuesSource")
+  void shouldReturnBadRequestWhenInvalidValues(String numberOne,String numberTwo){
+    webTestClient.get().uri("/api/calculator/sum/{numberOne}/{number2}", numberOne, numberTwo)
+        .exchange()
+        .expectStatus()
+        .isBadRequest();
+  }
+
+
+  private static Stream<Arguments> invalidValuesSource(){
+    return Stream.of(Arguments.of("-a","12"),Arguments.of("#","-"));
+  }
+
   private static Stream<Arguments> generateNumbersToSum() {
     return Stream.of(Arguments.of(1.0, 3.0, 4.0),
         Arguments.of(20.0, 3.0, 23.0),
