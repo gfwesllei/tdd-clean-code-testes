@@ -1,4 +1,4 @@
-springdoc:
+spring-doc:
   title: "Calculator project"
   description: "This project have a goal to provide math operations"
   version: 'v1'

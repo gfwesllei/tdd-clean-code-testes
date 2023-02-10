@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Profile;
 @Profile("swagger")
 public class ApiDocConfig {
 
-  @Value("${springdoc.title}")
+  @Value("${spring-doc.title}")
   private String title;
-  @Value("${springdoc.description}")
+  @Value("${spring-doc.description}")
   private String description;
-  @Value("${springdoc.version}")
+  @Value("${spring-doc.version}")
   private String version;
 
   @Bean
